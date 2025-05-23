@@ -1,3 +1,5 @@
+// session.js
+
 let currentUser = null;
 
 async function fetchUser() {
@@ -11,7 +13,6 @@ async function fetchUser() {
       return null;
     }
   } catch (e) {
-    console.error("Error fetching user session:", e);
     currentUser = null;
     return null;
   }
@@ -23,48 +24,47 @@ function updateUI(user) {
   const signupLink = document.getElementById('signup-link');
   const logoutBtn = document.getElementById('logoutBtn');
 
-  if (userInfo) userInfo.textContent = user ? `  ${user.email}` : '';
-  if (loginLink) loginLink.style.display = user ? 'none' : 'inline-block';
-  if (signupLink) signupLink.style.display = user ? 'none' : 'inline-block';
-  if (logoutBtn) logoutBtn.style.display = user ? 'inline-block' : 'none';
+  if (user) {
+    userInfo.textContent = `  ${user.email}`;
+    loginLink.style.display = 'none';
+    signupLink.style.display = 'none';
+    logoutBtn.style.display = 'inline-block';
+  } else {
+    userInfo.textContent = '';
+    loginLink.style.display = 'inline-block';
+    signupLink.style.display = 'inline-block';
+    logoutBtn.style.display = 'none';
+  }
 }
 
 async function initSession() {
   const user = await fetchUser();
   updateUI(user);
 
-  // Notify other scripts
+  // Dispatch a custom event for other scripts to listen if needed
   window.dispatchEvent(new CustomEvent('sessionChanged', { detail: user }));
 }
 
 async function logout() {
-  try {
-    await fetch('/api/logout', { method: 'POST' });
-  } catch (err) {
-    console.error("Logout error:", err);
-  }
+  await fetch('/api/logout', { method: 'POST' });
   currentUser = null;
   updateUI(null);
   window.dispatchEvent(new CustomEvent('sessionChanged', { detail: null }));
-  window.location.href = '/login.html';
+  window.location.reload();
 }
 
 function isLoggedIn() {
   return currentUser !== null;
 }
 
-function getCurrentUser() {
-  return currentUser;
-}
-
-// Initialize on DOM ready
+// Initialize session UI and logic on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   initSession();
 
   const logoutBtn = document.getElementById('logoutBtn');
-  if (logoutBtn) logoutBtn.addEventListener('click', logout);
+  logoutBtn.addEventListener('click', logout);
 });
 
-// Expose globally
+// Expose isLoggedIn and currentUser globally
 window.isLoggedIn = isLoggedIn;
-window.getCurrentUser = getCurrentUser;
+window.getCurrentUser = () => currentUser;
