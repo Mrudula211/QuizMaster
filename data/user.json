@@ -1,0 +1,12 @@
+[
+  {
+    "email": "student@example.com",
+    "passwordHash": "$2b$10$6qv3Z8K08CeLwOtqghw1V.5wWcl6QQBvEK8g2OEvwLhFT37.eJv9K",
+    "role": "student"
+  },
+  {
+    "email": "teacher@example.com",
+    "passwordHash": "$2b$10$6qv3Z8K08CeLwOtqghw1V.5wWcl6QQBvEK8g2OEvwLhFT37.eJv9K",
+    "role": "teacher"
+  }
+]

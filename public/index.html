@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuizMaster - Home</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <h1 class="logo">QuizMaster</h1>
+      <nav aria-label="Main navigation">
+        <a href="/index.html" class="active">Home</a>
+        <a href="#features">Features</a>
+        <a href="/play.html">Play</a>
+        <a href="/create.html">Create</a>
+
+        <span id="user-info" class="user-info" style="margin-left: auto; margin-right: 1rem;"></span>
+        <a href="/login.html" id="login-link" class="btn btn-primary">Login</a>
+        <a href="/signup.html" id="signup-link" class="btn btn-secondary">Signup</a>
+        <button id="logoutBtn" class="btn btn-secondary" style="display: none;">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" role="banner" aria-label="Hero section">
+      <div class="container">
+        <h2>Turn Learning into a Game!</h2>
+        <p>Create fun quizzes, challenge your friends, and climb the leaderboard!</p>
+        <div class="cta-buttons" role="group" aria-label="Call to action buttons">
+          <a href="/play.html" class="btn btn-primary">Play a Quiz</a>
+          <a href="/create.html" class="btn btn-secondary">Create a Quiz</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features" aria-labelledby="features-heading">
+      <div class="container features-grid">
+        <div class="feature-card" tabindex="0">
+          <h3>🎨 Create Quizzes</h3>
+          <p>Easily build quizzes with custom questions, timers, and answer types.</p>
+          <ul>
+            <li>Multiple choice, true/false, and short answers</li>
+            <li>Set timers for each question</li>
+            <li>Upload images and videos to enhance questions</li>
+          </ul>
+        </div>
+        <div class="feature-card" tabindex="0">
+          <h3>👥 Multiplayer Mode</h3>
+          <p>Host live quiz battles with friends or classrooms in real-time.</p>
+          <ul>
+            <li>Create private rooms for your friends</li>
+            <li>Real-time scoring and chat features</li>
+            <li>Team play options for group fun</li>
+          </ul>
+        </div>
+        <div class="feature-card" tabindex="0">
+          <h3>🏆 Leaderboards</h3>
+          <p>Track top players and see your ranking improve as you play more.</p>
+          <ul>
+            <li>Daily, weekly, and all-time leaderboards</li>
+            <li>Earn badges and rewards</li>
+            <li>Compare stats with friends and rivals</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" aria-labelledby="how-it-works-heading" style="padding: 4rem 1.5rem; background: #1a0f4a; color: #dcdcff;">
+      <div class="container">
+        <h2 id="how-it-works-heading" style="text-align: center; margin-bottom: 2rem;">How QuizMaster Works</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+          <div style="flex: 1 1 280px; background: #2e1a7a; padding: 1.5rem; border-radius: 12px; box-shadow: 0 0 15px #6a00f4aa; text-align: center;">
+            <h3>1. Create Your Quiz</h3>
+            <p>Sign up, choose question types, add content, and customize settings.</p>
+          </div>
+          <div style="flex: 1 1 280px; background: #2e1a7a; padding: 1.5rem; border-radius: 12px; box-shadow: 0 0 15px #6a00f4aa; text-align: center;">
+            <h3>2. Share with Friends</h3>
+            <p>Send a link or host a live multiplayer quiz to challenge others.</p>
+          </div>
+          <div style="flex: 1 1 280px; background: #2e1a7a; padding: 1.5rem; border-radius: 12px; box-shadow: 0 0 15px #6a00f4aa; text-align: center;">
+            <h3>3. Play & Compete</h3>
+            <p>Answer questions, earn points, and climb the leaderboards!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" aria-labelledby="testimonials-heading" style="padding: 4rem 1.5rem; background: #130d36; color: #cfcfff;">
+      <div class="container text-center">
+        <h2 id="testimonials-heading" style="margin-bottom: 2rem;">What Our Users Say</h2>
+        <blockquote style="max-width: 700px; margin: 0 auto 2rem; font-style: italic; line-height: 1.5; box-shadow: 0 0 15px #9b4dffcc; padding: 1rem 2rem; border-radius: 12px;">
+          “QuizMaster transformed our classroom experience! Students are excited to learn and compete in a friendly way.”
+          <footer>— Sarah K., Teacher</footer>
+        </blockquote>
+        <blockquote style="max-width: 700px; margin: 0 auto; font-style: italic; line-height: 1.5; box-shadow: 0 0 15px #6a00f4cc; padding: 1rem 2rem; border-radius: 12px;">
+          “I love challenging my friends online. The multiplayer mode is super fun and engaging!”
+          <footer>— Mark T., Student</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta" aria-label="Final call to action" style="padding: 4rem 1.5rem;">
+      <div class="container text-center">
+        <h2>Ready to Challenge Your Brain?</h2>
+        <p style="margin-bottom: 1.5rem; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          Join thousands of QuizMaster users already having fun and learning smarter. Don’t wait—start your journey now!
+        </p>
+        <a href="/play.html" class="btn btn-light btn-lg" style="font-size: 1.25rem; padding: 0.75rem 2rem;">Start a Quiz Now</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p>© 2025 QuizMaster by Mrudula | All rights reserved.</p>
+  </footer>
+
+  <script src="/script/logout.js"></script>
+  <script src="/script/session.js"></script>
+</body>
+</html>

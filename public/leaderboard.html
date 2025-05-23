@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <h1 class="logo">QuizMaster</h1>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/play.html">Play Quiz</a>
+      </nav>
+    </div>
+  </header>
+  
+  <section class="leaderboard-section">
+    <h1>🏆 Live Leaderboard</h1>
+    <div id="leaderboard" class="leaderboard-table">
+      <div class="loading-spinner" id="loading">
+  <div class="spinner"></div>
+  <p>Loading leaderboard...</p>
+</div>
+
+    </div>
+  </section>
+
+  <script src="/script/leaderboard.js"></script>
+</body>
+</html>

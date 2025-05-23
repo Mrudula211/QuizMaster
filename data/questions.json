@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hyper Text Markup Language",
+      "High-level Text Machine Language",
+      "Home Tool Markup Language",
+      "Hyperlinks and Text Management Language"
+    ],
+    "correctAnswer": "Hyper Text Markup Language"
+  },
+  {
+    "question": "Which tag is used to create a hyperlink in HTML?",
+    "options": [
+      "<link>",
+      "<href>",
+      "<a>",
+      "<hyperlink>"
+    ],
+    "correctAnswer": "<a>"
+  },
+  {
+    "question": "Which CSS property is used to change the text color of an element?",
+    "options": [
+      "font-color",
+      "text-color",
+      "color",
+      "background-color"
+    ],
+    "correctAnswer": "color"
+  },
+  {
+    "question": "What does the display: flex; property do in CSS?",
+    "options": [
+      "Makes the text bold",
+      "Aligns elements vertically only",
+      "Makes a container flexible for layout",
+      " Adds spacing between elements"
+    ],
+    "correctAnswer": "Makes a container flexible for layout"
+  }
+]

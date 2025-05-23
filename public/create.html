@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create Quiz - QuizMaster</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container nav-content">
+      <h1 class="logo">QuizMaster</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/play">Play</a>
+        <a href="/leaderboard">Leaderboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="quiz-create">
+    <div class="container">
+      <h2>Create a New Quiz</h2>
+      <form id="quizForm">
+        <div id="questions-container"></div>
+
+        <button type="button" class="btn btn-primary" onclick="addQuestion()">+ Add Question</button>
+        <button type="submit" class="btn btn-secondary">Save Quiz</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 QuizMaster by Mrudula</p>
+  </footer>
+
+  <script src="/script/script.js"></script>
+</body>
+</html>

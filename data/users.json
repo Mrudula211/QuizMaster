@@ -1,0 +1,14 @@
+[
+  {
+    "email": "test@example.com",
+    "passwordHash": "$2b$10$6qv3Z8K08CeLwOtqghw1V.5wWcl6QQBvEK8g2OEvwLhFT37.eJv9K"
+  },
+  {
+    "email": "teacher@example.com",
+    "passwordHash": "$2b$10$XlvumbtASGEL0CKEGAjCrezk4JBmnLc5OB3LRJZnK1QOuJpo.qEEm"
+  },
+  {
+    "email": "student@example.com",
+    "passwordHash": "$2b$10$MOavR1pRRiL9BuBGmiaA6.TZQz.kCdK/03wm9eW8615UQlcsLlzSS"
+  }
+]

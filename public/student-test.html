@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Take Quiz - QuizMaster</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <h1 class="logo">QuizMaster</h1>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/play.html" class="active">Play</a>
+        <a href="/leaderboard.html">Leaderboard</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Quiz Section -->
+  <section class="quiz-section container">
+    <h2>Quiz Time!</h2>
+    <div id="quiz-container">
+      <p>Loading questions...</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 QuizMaster by Mrudula | All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Logout handler
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      try {
+        const res = await fetch('/api/logout', { method: 'POST' });
+        if (res.ok) window.location.href = '/login.html';
+      } catch {
+        alert('Logout failed');
+      }
+    });
+
+    // Load quiz questions
+    async function loadQuiz() {
+      try {
+        const res = await fetch('/api/questions');
+        if (!res.ok) throw new Error('Failed to load questions');
+        const questions = await res.json();
+
+        const container = document.getElementById('quiz-container');
+        container.innerHTML = '';
+
+        questions.forEach((q, i) => {
+          const div = document.createElement('div');
+          div.className = 'question-block';
+          div.innerHTML = `
+            <p><strong>Q${i + 1}:</strong> ${q.question}</p>
+            ${q.options.map((opt, idx) => `
+              <label>
+                <input type="radio" name="q${i}" value="${idx}" />
+                ${opt}
+              </label>
+            `).join('')}
+          `;
+          container.appendChild(div);
+        });
+
+        // Add submit button
+        const submitBtn = document.createElement('button');
+        submitBtn.textContent = 'Submit Quiz';
+        submitBtn.className = 'btn btn-primary full-width';
+        submitBtn.onclick = submitQuiz;
+        container.appendChild(submitBtn);
+
+      } catch (error) {
+        document.getElementById('quiz-container').textContent = 'Error loading quiz questions.';
+        console.error(error);
+      }
+    }
+
+    // Submit quiz and calculate score
+    async function submitQuiz() {
+      const questions = await fetch('/api/questions').then(r => r.json());
+      let score = 0;
+      questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && parseInt(selected.value) === q.correctAnswer) {
+          score++;
+        }
+      });
+
+      alert(`You scored ${score} out of ${questions.length}!`);
+
+      // Optionally send to leaderboard
+      const name = prompt('Enter your name for leaderboard:');
+      if (name) {
+        try {
+          const res = await fetch('/api/leaderboard', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, score }),
+          });
+          if (res.ok) {
+            alert('Your score has been saved!');
+            window.location.href = '/leaderboard.html';
+          } else {
+            alert('Failed to save score.');
+          }
+        } catch {
+          alert('Network error saving score.');
+        }
+      }
+    }
+
+    // Initialize quiz on page load
+    window.onload = loadQuiz;
+  </script>
+</body>
+</html>

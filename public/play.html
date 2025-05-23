@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Play Quiz - QuizMaster</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-content">
+      <h1 class="logo">QuizMaster</h1>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/create.html">Create</a>
+        <a href="/leaderboard.html">Leaderboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="quiz-play">
+    <div class="container">
+      <div id="quiz-box" class="quiz-box">
+        <div class="progress">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <div id="question-container">
+          <h2 id="question" role="heading" aria-level="2">Loading...</h2>
+          <div id="options" role="list" class="options"></div>
+          <div id="timer">Time left: <span id="time">10</span>s</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="result-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Quiz Completed!</h2>
+      <p>Your Score: <span id="final-score"></span></p>
+      <button onclick="location.reload()">Play Again</button>
+      <button onclick="window.location.href='/leaderboard.html'">View Leaderboard</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 QuizMaster by Mrudula</p>
+  </footer>
+
+  <script src="/script/quiz.js"></script>
+  <script src="/script/session.js"></script>
+
+  <script>
+    // Wait for session.js to load and initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Delay check a bit to let session.js fetch user
+      setTimeout(() => {
+        if (!window.isLoggedIn || !window.isLoggedIn()) {
+          alert("Please log in to play the quiz.");
+          window.location.href = "/login.html";
+        }
+      }, 300);
+    });
+  </script>
+
+</body>
+</html>
